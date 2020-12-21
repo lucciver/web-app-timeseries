@@ -1,2 +1,23 @@
-# Bike-sharing-system
-In this project we realized a performance analysis of three learning algorithms to predict the number of users per hour on a bike sharing system in the next 12-hour horizon. The choose of the algorithms was done to overcome specific trends arising in our data. We performed an analysis on the prediction of the algorithms to show the expected advantages and disadvantages of the model in the different seasons, trends and unexpected events. Our objective is to determine which of the algorithms have a better accuracy rate, and under which circumstances. We are also interested about the running time; about the hyperparameters we will delimit them when defining the methodology and the experiments. The project content is as follows, in section one we will introduce briefly about the data set and the previous work related with it, in section two we will introduce the dataset, in section three we will present the algorithms and the reason why we choose those algorithms; in section 4 we present the methodology and the experiments; finally, in section 5 we conclude which algorithm is better presenting the result of our ANOVA analysis.
+#Prediction
+This repository contains the implemetation of --------- for the prediction on the number of users per hour on a bike sharing system in the next 12 hour horizon.
+
+## Dataset Description
+For a complete description of the data to the following link http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset
+
+## Code Description
+For running the code use the following command `streamlit run src/main.py`.
+
+#### 1. Specification of dependencies
+The code dependencies are specifed in the `requirements.txt` file.
+
+#### 2. Training code
+For training the model run `train.py`  with the following command line parameters.
+
+#### 3. Evaluation code
+For evaluating the model run `eval.py` with the following command line parameters.
+
+#### 4. Pre-trained models
+You can find pre-trained models in the releases section.
+
+#### 5. Qucik deployment and visualization
+You can find pre-trained models in the releases section.
