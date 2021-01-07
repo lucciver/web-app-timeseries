@@ -34,22 +34,27 @@ def main(data, params):
     params[n_splits] = 720
 
     """
+    index_split = int((data.shape[0])*(params["train/test"][0]/100))
+    print("Index", index_split)
 
-    X_t=data[:17380,:14]
-    y_t=data[:17380,14:]
+    X_t=data[:data.shape[0]+1,:data.shape[1]-1]
+    Y_t=data[:data.shape[0]+1,data.shape[1]-1:]
 
-    X_t_1Y=data[:8690,:14]
-    y_t_1Y=data[:8690,14:]
+    X_split = np.split(X_t,[index_split])
+    Y_split = np.split(Y_t,[index_split])
 
-    X_t_2Y=data[8666:,:14]
-    y_t_2Y=data[8666:,14:]
+    X_t_1Y = X_split[0]
+    y_t_1Y = Y_split[0]
+    X_t_2Y = X_split[1]
+    y_t_2Y = Y_split[1]
 
     err_mae =[]
     err_mape = []
     err_rmse = []
-    run=[]
-    pred=[]
+    run = []
+    pred = []
     tscv = TimeSeriesSplit(params["n_splits"])
+
     for train_index, test_index in tscv.split(X_t):
         print("TRAIN:", train_index, "TEST:", test_index)
         X_train, X_test = X_t_2Y[train_index],X_t_2Y[test_index]

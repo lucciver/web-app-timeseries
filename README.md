@@ -2,7 +2,7 @@
 This repository contains the implemetation of --------- for the prediction on the number of users per hour on a bike sharing system in the next 12 hour horizon.
 
 ## Dataset Description
-For a complete description of the data to the following link http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset
+Datasets are in .csv format. The last column is assumed to be the prediction (Y)
 
 ## Code Description
 For running the code use the following command `streamlit run src/main.py`.
