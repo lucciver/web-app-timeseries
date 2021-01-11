@@ -2,7 +2,8 @@
 This repository contains the implemetation of --------- for the prediction on the number of users per hour on a bike sharing system in the next 12 hour horizon.
 
 ## Dataset Description
-Datasets are in .csv format. The last column is assumed to be the prediction (Y)
+Datasets are in .csv format in `src/data/`. At this point of the project we assumed the datta has been prepared for analysys.
+
 
 ## Code Description
 For running the code use the following command `streamlit run src/main.py`.
