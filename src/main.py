@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import pandas as pd
 
 import auxx as aux
 import algorithms as alg
@@ -13,6 +14,7 @@ implemented_number_data_splits = (500, 100)
 available_data_sets = ['None', 'bike_sharing_dataset_hour', 'bike_sharing_dataset_day']
 ui_modules = ["Data", "Train", "Evaluate"]
 implemented_data_partition = [(70,30),(50,50),(80,20),(60,40)]
+implemented_framing = ['None', 'sliding window']
 
 #-----------------------------------------------------------------------------#
 def write_info_data():
@@ -22,9 +24,19 @@ def write_info_data():
         my_expander_data_info.write("For detailled information about the dataset see the following http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset")
 
 def write_data_vis():
-    expander_visual = st.beta_expander("Data visualization")
-    expander_visual.header("Data visualization")
+    expander_visual = st.beta_expander("Data visualization and preparation")
     selectbox_dataset = expander_visual.selectbox('Choose Dataset', available_data_sets)
+    expander_visual.header("Data trasnformation")
+    selectbox_frame = expander_visual.selectbox('time series data to supervised learning data ', implemented_framing)
+    submit_frame = expander_visual.button('Transform')
+    if submit_frame:
+        dataPreview = aux.loadcsv(folder + "/data/" + selectbox_dataset+".csv")
+        print(dataPreview.shape)
+        dataSupervised = pd.DataFrame(data=dataPreview[1:,1:],index=[i for i in range(1,dataPreview.shape[0])],columns=[i for i in range(1,dataPreview.shape[1])])
+        print(dataSupervised.columns)
+        dataSupervised['lag_count'] = dataSupervised[dataPreview.shape[1]-1].shift()
+        dataSupervised.to_csv(folder + "/data/" + selectbox_dataset +"_supervised" + ".csv")
+    expander_visual.header("Data visualization")
     c1, c2 = expander_visual.beta_columns((2, 2))
     #Visualiation
     selectbox_users_plot = c1.selectbox('Visualization', ['users/time', 'registered/time', 'casual/time'])

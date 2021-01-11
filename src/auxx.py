@@ -3,8 +3,15 @@ import streamlit
 
 
 def loadcsv(filename):
+    """
+
+    RETURN:
+    
+    dataset(numpy array):
+    """
     dataset = np.genfromtxt(filename, delimiter=',')
     return dataset
+
 
 def altair_chart(err_name, st, data):
     st.subheader('Comparision of infection growth')

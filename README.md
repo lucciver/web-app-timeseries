@@ -3,7 +3,7 @@ This repository contains the implemetation of --------- for the prediction on th
 
 ## Dataset Description
 Datasets are in .csv format in `src/data/`. At this point of the project we assumed the datta has been prepared for analysys.
-
+The variable to predicct is always the last column of the data set.
 
 ## Code Description
 For running the code use the following command `streamlit run src/main.py`.
@@ -22,3 +22,7 @@ You can find pre-trained models in the releases section.
 
 #### 5. Qucik deployment and visualization
 You can find pre-trained models in the releases section.
+
+## Useful links
+
+http://ethen8181.github.io/machine-learning/time_series/3_supervised_time_series.html
