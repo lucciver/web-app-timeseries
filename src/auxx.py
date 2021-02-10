@@ -2,17 +2,6 @@ import numpy as np
 import streamlit
 
 
-def loadcsv(filename):
-    """
-
-    RETURN:
-    
-    dataset(numpy array):
-    """
-    dataset = np.genfromtxt(filename, delimiter=',')
-    return dataset
-
-
 def altair_chart(err_name, st, data):
     st.subheader('Comparision of infection growth')
     total_cases_graph  = alt.Chart(data).transform_filter(alt.datum.total_cases > 0
