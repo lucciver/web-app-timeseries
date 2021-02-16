@@ -15,8 +15,6 @@ def main(params, data):
             mod = importlib.import_module("algorithms.regressors")
             class_ = getattr(mod, alg)
 
-
-
     numalgs = len(regressionalgs)
     numparams = len(parameters)
     errors = {}
@@ -78,8 +76,8 @@ def main(params, data):
                 bestparams = p
 
         # Extract best parameters
-        learner.reset(parameters[bestparams])
-        #print ('Best parameters for ' + learnername + ': ' + str(learner.getparams()))
+        #learner.reset(parameters[bestparams])
+        print ('Best parameters for ' + learnername + ': ' + str(learner.getparams()))
         print ('Average test error for ' + learnername + ': ' + str(besterror))
         print ('Standard test error for ' + learnername + ': ' + str(standerror))# calcultae the sample standar deviation for the test error
         print ('Average train error for ' + learnername + ': ' + str(besterrortrain))
